@@ -1,0 +1,114 @@
+<!ELEMENT catalog (locale-name?, catalog-entry*, topic*)>
+<!ELEMENT catalog-entry (locale-label?, field*, property*, children?, links*, script*, questions?)>
+<!ELEMENT children (catalog-entry+)>
+<!ELEMENT topic (locale-label?, field*, property*, catalog-entry*, topic*)>
+<!ELEMENT field (#PCDATA)>
+<!ELEMENT property (value?, locale-value?)>
+<!ELEMENT locale-name (i18n-entry*)>
+<!ELEMENT locale-label (i18n-entry*)>
+<!ELEMENT locale-value (i18n-entry*)>
+<!ELEMENT i18n-entry (#PCDATA)>
+<!ELEMENT script (links*)>
+<!ELEMENT links (locale-name?,link-entry+)>
+<!ELEMENT questions (question*)>
+<!ELEMENT link-entry EMPTY>
+<!ELEMENT value (#PCDATA)>
+<!ATTLIST catalog
+ key            CDATA #IMPLIED
+ class          CDATA #IMPLIED 
+ name           CDATA #REQUIRED
+ domain         CDATA #REQUIRED
+ built-in	    CDATA #REQUIRED
+ flags          CDATA #IMPLIED 
+ country        CDATA #IMPLIED
+ locale         CDATA "fr"
+ redirect       CDATA #IMPLIED
+ labels-format  (text|html) "text"
+ order-by       (default|label|code|sort-order|ordinal|none) "default"
+ storage        (database|repository|default) "default"
+ path           CDATA #IMPLIED
+ persistence    (structured|raw) "structured"
+ author         CDATA #IMPLIED
+ version        CDATA "1.0"
+ meta-branch    CDATA #IMPLIED
+ subset         (true|false|yes|no) "no"
+ upgrade-policy (default|delete-create|diff-remove-orphans|diff-deprecate-orphans) "default"
+ history        (true|false|yes|no) "no"
+ update-site    CDATA #IMPLIED
+ class-entry    CDATA #IMPLIED 
+ class-topic    CDATA #IMPLIED 
+ class-link     CDATA #IMPLIED 
+ class-prop     CDATA #IMPLIED 
+>
+<!ATTLIST topic
+ id             ID    #REQUIRED
+ label          CDATA #REQUIRED
+ short-label    CDATA #IMPLIED 
+ tip            CDATA #IMPLIED
+ category       CDATA #IMPLIED 
+ public-code    CDATA #IMPLIED
+ attributes     CDATA #IMPLIED 
+ tag            CDATA #IMPLIED 
+ flags          CDATA #IMPLIED 
+ sort-order     CDATA #IMPLIED
+ deprecated     (true|false|yes|no) "no"
+ class          CDATA #IMPLIED 
+ built-in       CDATA #IMPLIED 
+>
+<!ATTLIST catalog-entry
+ id             ID    #REQUIRED
+ label          CDATA #REQUIRED
+ short-label    CDATA #IMPLIED 
+ tip            CDATA #IMPLIED
+ synonyms       CDATA #IMPLIED 
+ topic          CDATA #IMPLIED 
+ category       CDATA #IMPLIED 
+ public-code    CDATA #IMPLIED
+ attributes     CDATA #IMPLIED 
+ tag            CDATA #IMPLIED
+ flags          CDATA #IMPLIED 
+ sort-order     CDATA #IMPLIED
+ deprecated     (true|false|yes|no) "no"
+ class          CDATA #IMPLIED 
+ built-in       CDATA #IMPLIED 
+>
+<!ATTLIST field
+ name           CDATA #REQUIRED
+ value          CDATA #REQUIRED
+ datatype       (undefined|string|boolean|integer|long|date|datime|timestamp|byte|float|double|text|computed|integer_array|placeholder) "undefined"
+>
+<!ATTLIST property
+ name           CDATA #REQUIRED
+ type           (string|date|number|boolean|reference|binary|uri) #REQUIRED
+ value          CDATA  #REQUIRED
+>
+<!ATTLIST questions
+ catalog        CDATA #IMPLIED
+ copy           CDATA #IMPLIED
+ attributes     CDATA #IMPLIED 
+>
+<!ATTLIST question
+ code           CDATA #REQUIRED
+ name           CDATA #REQUIRED
+ ordering       CDATA #IMPLIED
+ flags          CDATA #IMPLIED 
+ tip            CDATA #IMPLIED
+ attributes     CDATA #IMPLIED 
+>
+<!ATTLIST i18n-entry
+ locale         CDATA #REQUIRED
+ value          CDATA #REQUIRED
+>
+<!ATTLIST links
+ key            CDATA #REQUIRED
+ name           CDATA #IMPLIED
+ references     CDATA #IMPLIED
+>
+<!ATTLIST link-entry
+ inner-ref      IDREF  #IMPLIED
+ reference      CDATA  #IMPLIED
+ catalog        CDATA  #IMPLIED
+>
+<!ATTLIST scripts
+ name           CDATA #IMPLIED
+>
