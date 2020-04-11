@@ -18,8 +18,9 @@
  class          CDATA #IMPLIED 
  name           CDATA #REQUIRED
  domain         CDATA #REQUIRED
- built-in	    CDATA #REQUIRED
- flags          CDATA #IMPLIED 
+ built-in       CDATA #REQUIRED
+ flags          CDATA #IMPLIED
+ attributes     CDATA #IMPLIED 
  country        CDATA #IMPLIED
  locale         CDATA "fr"
  redirect       CDATA #IMPLIED
