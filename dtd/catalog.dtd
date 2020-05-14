@@ -76,7 +76,7 @@
 <!ATTLIST field
  name           CDATA #REQUIRED
  value          CDATA #REQUIRED
- datatype       (undefined|string|boolean|integer|long|date|datime|timestamp|byte|float|double|text|computed|integer_array|placeholder) "undefined"
+ datatype       (undefined|string|boolean|integer|long|date|datime|timestamp|byte|float|double|text|html|computed|integer_array|placeholder) "undefined"
 >
 <!ATTLIST property
  name           CDATA #REQUIRED
