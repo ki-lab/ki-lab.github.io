@@ -49,6 +49,7 @@
  category       CDATA #IMPLIED 
  public-code    CDATA #IMPLIED
  attributes     CDATA #IMPLIED 
+ visibility     CDATA #IMPLIED 
  tag            CDATA #IMPLIED 
  flags          CDATA #IMPLIED 
  sort-order     CDATA #IMPLIED
@@ -66,6 +67,7 @@
  category       CDATA #IMPLIED 
  public-code    CDATA #IMPLIED
  attributes     CDATA #IMPLIED 
+ visibility     CDATA #IMPLIED 
  tag            CDATA #IMPLIED
  flags          CDATA #IMPLIED 
  sort-order     CDATA #IMPLIED
