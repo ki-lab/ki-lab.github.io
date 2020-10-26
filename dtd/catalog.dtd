@@ -72,9 +72,15 @@
  flags          CDATA #IMPLIED 
  sort-order     CDATA #IMPLIED
  deprecated     (true|false|yes|no) "no"
- class          CDATA #IMPLIED 
- built-in       CDATA #IMPLIED 
+ class          CDATA #IMPLIED
+ built-in       CDATA #IMPLIED
+ survey-domain  CDATA #IMPLIED
+ survey-data    (bound|unbound|survey-bound|survey-unbound|entity-specific|public) "bound"
 >
+<!-- for survey-data: same semantics for "bound"/"survey-bound" and "unbound"/"survey-unbound" -->
+<!--                  "entity-specific" implies "survey-unbound" but each entity may have its own data entry -->
+<!--                  "public" implies "survey-unbound" AND each entity share the same data entry -->
+
 <!ATTLIST field
  name           CDATA #REQUIRED
  value          CDATA #REQUIRED
