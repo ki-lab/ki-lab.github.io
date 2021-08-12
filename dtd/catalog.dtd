@@ -32,6 +32,8 @@
  author         CDATA #IMPLIED
  version        CDATA "1.0"
  meta-branch    CDATA #IMPLIED
+ meta-branch-label  CDATA #IMPLIED
+ meta-branch-root   CDATA #IMPLIED
  subset         (true|false|yes|no) "no"
  upgrade-policy (default|delete-create|diff-remove-orphans|diff-deprecate-orphans) "default"
  history        (true|false|yes|no) "no"
