@@ -15,12 +15,12 @@
 <!ELEMENT value (#PCDATA)>
 <!ATTLIST catalog
  key            CDATA #IMPLIED
- class          CDATA #IMPLIED 
+ class          CDATA #IMPLIED
  name           CDATA #REQUIRED
  domain         CDATA #REQUIRED
  built-in       CDATA #REQUIRED
  flags          CDATA #IMPLIED
- attributes     CDATA #IMPLIED 
+ attributes     CDATA #IMPLIED
  country        CDATA #IMPLIED
  locale         CDATA "fr"
  redirect       CDATA #IMPLIED
@@ -38,55 +38,63 @@
  upgrade-policy (default|delete-create|diff-remove-orphans|diff-deprecate-orphans) "default"
  history        (true|false|yes|no) "no"
  update-site    CDATA #IMPLIED
- class-entry    CDATA #IMPLIED 
- class-topic    CDATA #IMPLIED 
- class-link     CDATA #IMPLIED 
- class-prop     CDATA #IMPLIED 
+ class-entry    CDATA #IMPLIED
+ class-topic    CDATA #IMPLIED
+ class-link     CDATA #IMPLIED
+ class-prop     CDATA #IMPLIED
 >
 <!ATTLIST topic
  id             ID    #REQUIRED
  label          CDATA #REQUIRED
- short-label    CDATA #IMPLIED 
+ short-label    CDATA #IMPLIED
  tip            CDATA #IMPLIED
- category       CDATA #IMPLIED 
+ category       CDATA #IMPLIED
  public-code    CDATA #IMPLIED
- attributes     CDATA #IMPLIED 
- visibility     CDATA #IMPLIED 
- tag            CDATA #IMPLIED 
- flags          CDATA #IMPLIED 
+ attributes     CDATA #IMPLIED
+ visibility     CDATA #IMPLIED
+ tag            CDATA #IMPLIED
+ flags          CDATA #IMPLIED
  sort-order     CDATA #IMPLIED
  deprecated     (true|false|yes|no) "no"
- class          CDATA #IMPLIED 
- built-in       CDATA #IMPLIED 
+ class          CDATA #IMPLIED
+ built-in       CDATA #IMPLIED
 >
 <!ATTLIST catalog-entry
  id             ID    #REQUIRED
  label          CDATA #REQUIRED
- short-label    CDATA #IMPLIED 
+ short-label    CDATA #IMPLIED
  tip            CDATA #IMPLIED
- synonyms       CDATA #IMPLIED 
- topic          CDATA #IMPLIED 
- category       CDATA #IMPLIED 
+ synonyms       CDATA #IMPLIED
+ topic          CDATA #IMPLIED
+ category       CDATA #IMPLIED
  public-code    CDATA #IMPLIED
- attributes     CDATA #IMPLIED 
- visibility     CDATA #IMPLIED 
+ attributes     CDATA #IMPLIED
+ visibility     CDATA #IMPLIED
  tag            CDATA #IMPLIED
- flags          CDATA #IMPLIED 
+ flags          CDATA #IMPLIED
  sort-order     CDATA #IMPLIED
  deprecated     (true|false|yes|no) "no"
  class          CDATA #IMPLIED
  built-in       CDATA #IMPLIED
  survey-domain  CDATA #IMPLIED
- survey-data    (bound|unbound|survey-bound|survey-unbound|entity-specific|public) "bound"
+ survey-data    (bound|unbound|survey-bound|survey-unbound|entity-specific|public|constant|constant-validation-freeze) "bound"
 >
 <!-- for survey-data: same semantics for "bound"/"survey-bound" and "unbound"/"survey-unbound" -->
 <!--                  "entity-specific" implies "survey-unbound" but each entity may have its own data entry -->
 <!--                  "public" implies "survey-unbound" AND each entity share the same data entry -->
 
+<!--                  "constant" implies a mapping with a 'tracked constant' so it is unbound AND the displayed value should always be the recent one -->
+<!--                  (related to FB #24405) -->
+
+<!--                  "constant-validation-freeze" behaves like "constant" except when the 'form/survey' is validated ! -->
+<!--                   In that situation, the value is then frozen (ie. it becomes "bound" in db with proper survey) -->
+<!--                  (related to FB #25424) -->
+
+
 <!ATTLIST field
  name           CDATA #REQUIRED
  value          CDATA #REQUIRED
- datatype       (undefined|string|boolean|integer|long|date|datime|timestamp|byte|float|double|text|html|computed|integer_array|placeholder) "undefined"
+ datatype       (undefined|string|boolean|integer|long|date|time|datime|timestamp|byte|float|double|text|html|computed|integer_array|placeholder) "undefined"
 >
 <!ATTLIST property
  name           CDATA #REQUIRED
@@ -96,15 +104,15 @@
 <!ATTLIST questions
  catalog        CDATA #IMPLIED
  copy           CDATA #IMPLIED
- attributes     CDATA #IMPLIED 
+ attributes     CDATA #IMPLIED
 >
 <!ATTLIST question
  code           CDATA #REQUIRED
  name           CDATA #REQUIRED
  ordering       CDATA #IMPLIED
- flags          CDATA #IMPLIED 
+ flags          CDATA #IMPLIED
  tip            CDATA #IMPLIED
- attributes     CDATA #IMPLIED 
+ attributes     CDATA #IMPLIED
 >
 <!ATTLIST i18n-entry
  locale         CDATA #REQUIRED
@@ -120,6 +128,8 @@
  reference      CDATA  #IMPLIED
  catalog        CDATA  #IMPLIED
 >
-<!ATTLIST scripts
+<!ATTLIST script
+ key            CDATA #IMPLIED
  name           CDATA #IMPLIED
+ backend        (true|false|yes|no) "no"
 >
